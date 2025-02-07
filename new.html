@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forever With You 💕</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<style>
+    @font-face {
+        font-family: digit;
+        src: url('digital-7_mono.ttf') format("truetype");
+    }
+    body {
+        text-align: center;
+        background: linear-gradient(to right, #ff758c, #ff7eb3);
+        color: white;
+        font-family: 'Arial', sans-serif;
+    }
+    #loveMessage {
+        margin-top: 50px;
+        font-size: 22px;
+        font-weight: bold;
+    }
+    #heart {
+        font-size: 80px;
+        color: red;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    #heart:hover {
+        transform: scale(1.2);
+    }
+    #heart.clicked {
+        animation: heartbeat 0.6s infinite;
+    }
+    @keyframes heartbeat {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.4); }
+    }
+    #timer {
+        margin-top: 20px;
+        font-size: 20px;
+        font-family: digit, sans-serif;
+    }
+</style>
+</head>
+<body>
+
+<div id="loveMessage">
+    Hey Love! 💖<br>
+    From the moment our eyes met, my world changed. 🌎✨<br>
+    You are my light, my strength, my heart. ❤️<br>
+    Through ups and downs, we grow stronger—forever together. 💪💕<br>
+    <br>
+    I promise to love you endlessly. Will you be mine forever? 💍
+</div>
+
+<div>
+    <span id="heart" onclick="animateHeart()"><i class="fas fa-heart"></i></span>
+</div>
+
+<div id="timer">Time Together: <span id="elapseTime"></span></div>
+
+<script>
+    function animateHeart() {
+        let heart = document.getElementById("heart");
+        heart.classList.toggle("clicked");
+        alert("I LOVE YOU SO MUCH! 💞");
+    }
+
+    function updateTimer() {
+        let startDate = new Date(2022, 6, 11, 16, 30, 0);
+        let now = new Date();
+        let difference = now - startDate;
+        let days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+        let minutes = Math.floor((difference / (1000 * 60)) % 60);
+        let seconds = Math.floor((difference / 1000) % 60);
+        document.getElementById("elapseTime").innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+    setInterval(updateTimer, 1000);
+</script>
+
+</body>
+</html>
